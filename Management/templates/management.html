@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Management</title>
+  {% load seconds_to_hm %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <!-- fontawesome links -->
+  {% load static%}
+  <link rel="stylesheet" href="{% static './font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+  <link rel="stylesheet" href=" {% static './fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.min.css'%}">
+
+  <!-- External Links -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <link rel="stylesheet" href="{% static 'management.css'%}">
+</head>
+
+<body>
+{{ data }}
+  <div id="Main">
+    <div id="nav">
+      <nav class="navbar navbar-expand-lg nav1 ">
+        <div class="container-fluid">
+          <i class="fa fa-bars" id="bar" aria-hidden="true"></i> <span class="badge bg-danger">S</span><span
+            class="badge bg-dark text-light">N</span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Management Live</a>
+              </li>
+
+            </ul>
+            <span class="navbar-text">
+              <ul class="nav ">
+                <li>
+                  <a class="nav-link active text-white" href="#"> <span><i class="fa fa-home" id="home"
+                        aria-hidden="true"></i></span>Home</a>
+                </li>
+                <li class=" dropdown">
+                  <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <span id="Admissions"><i class="fa fa-address-card-o" aria-hidden="true"></i></span>Admissions
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <div id="name">
+                  <span class="AB">AB</span>
+                </div>
+              </ul>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </div>
+      <div class="sidebar">
+        <div id="sidebar1">
+          <div class="icons"> <a href="#"><i class="fa aicon   fa-search" aria-hidden="true"></i> </a>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-filter" aria-hidden="true"></i> </a></div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-sitemap" aria-hidden="true"></i></a></div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-list" aria-hidden="true"></i> </a></div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-calculator" aria-hidden="true"></i></a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-ambulance" aria-hidden="true"></i></a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-ambulance" aria-hidden="true"></i></a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-user-md" aria-hidden="true"></i> </a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-hospital-o" aria-hidden="true"></i> </a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-lock" aria-hidden="true"></i></a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-globe" aria-hidden="true"></i> </a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-share-alt" aria-hidden="true"></i> </a> </div>
+            <div class="icons"> <a href="#"><i class="fa aicon fa-bar-chart" aria-hidden="true"></i> </a> </div>
+          </div>
+        </div>
+      </div>
+      <div id="sun-main">
+        
+        <div id="keymatrics-main" class="">
+          <div class="subkey  " id="keymatric">
+            <h3>Key Metrics</h3>
+          </div>
+          <div class="subkey" id="Rtime">
+            <div class="t1">Queue to Registration</div>
+            <div><b>Registration Time</b> <span id="icon1"><i class="fa fa-clock-o" aria-hidden="true"></i>
+              <span >{{avg_regtm}}</span> </span>
+            </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Registration to Triage</div>
+            <div><b>Time to Triage</b> <span id="icon2"><i class="fa fa-clock-o" aria-hidden="true"></i>
+             <span >{{triage_done_tm}}</span>
+              </span>
+            </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Triage to Consult</div>
+            <div><b class="tc1">Time to Consult</b> <span id="icon3"><i class="fa fa-clock-o" aria-hidden="true"></i>
+              
+                <span >{{cons_done_tm}}</span> </span> </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Triage End to Discharge</div>
+            <div><b class="tc1">In Zone Time</b> <span id="icon4"><i class="fa fa-clock-o" aria-hidden="true"></i>
+             
+              <span>{{zone_time}}</span> </span> </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Consultation to Discharge</div>
+            <div><b class="tc1">Treatment Time </b> <span id="icon5"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            
+              <span>{{avg_treattm}}</span> </span> </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Lab Order Request to Processing</div>
+            <div><b class="tc1">Lab Processing Time</b> <span id="icon6"><i class="fa fa-clock-o"
+                  aria-hidden="true"></i> 
+                  
+                  <span>data</span> </span> </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">Radiology Order Request to Processing</div>
+            <div><b class="tc1">Radiology Processing Time</b> <span id="icon7"><i class="fa fa-clock-o"
+                  aria-hidden="true"></i> <span>data</span> </span> </div>
+          </div>
+          <div class="subkey" id="">
+            <div class="t1">UCC Discharge to IP Bed Allotment</div>
+            <div><b class="tc1">IP Transfers</b> <span id="icon8"><i class="fa fa-clock-o" aria-hidden="true"></i>
+             
+              <span>{{ipt_complete_time}}</span> </span> </div>
+          </div>
+
+        </div>
+        <div id="zone-main">
+          <div id="Zone-Statistics">
+
+            <div class="Zone" id="Zone-s">
+              <div class="zone  mt-1 text-center text-white" id="Zone-s1">Zone-Statistics</div>
+              <div class="zone mt-1"> <i class="fa fa-users" aria-hidden="true"></i> <span class=" pull-right">Total
+                  Visits</span></div>
+              <div class="zone mt-1"> <i class="fa-solid fa-heart"></i><span class=" pull-right">Active</span></div>
+              <div class="zone mt-1"> <i class="fa-solid fa-suitcase-rolling"></i> <span
+                  class=" pull-right">Discharged</span> </div>
+              <div class="zone mt-1"> <i class="fa-regular fa-clock"></i> <span class=" pull-right">Average Triage
+                  Time</span></div>
+              <div class="zone mt-1"> <i class="fa-solid fa-business-time"></i><span class=" pull-right">Average Hold
+                  time</span> </div>
+              <div class="zone mt-1"> <i class="fa-solid fa-user-plus"></i><span class=" pull-right">Average Visit
+                  Time</span> </div>
+            </div>
+            <div class="Zone1" id="Green1">
+              <div class="green mt-1 text-center" id="green1">Green Zone</div>
+              <div class="green mt-1">{{zonestats.green.total_visits_count}}</div>
+              <div class="green mt-1">{{zonestats.green.active_count}}</div>
+              <div class="green mt-1">{{zonestats.green.discharge_count}}</div>
+              {% comment %} {% seconds_to_hm zonstats.green.avg_triage_tm as greenavg_triage %} {% endcomment %}
+              <div class="green mt-1">{{greenavg_triage}}</div>
+              {% comment %} {% seconds_to_hm zonstats.green.avg_zone_tm as greenavg_zone %} {% endcomment %}
+              <div class="green mt-1 ">{{greenavg_zone}}</div>
+              {% comment %} {% seconds_to_hm zonstats.green.avg_visit_tm as greenavg_visit %} {% endcomment %}
+              <div class="green mt-1">{{greenavg_visit}}</div>
+            </div>
+            <div class="Zone1">
+              <div class="yellow mt-1 text-center" id="yellow1">Yellow Zone</div>
+              <div class="yellow mt-1">{{zonestats.yellow.total_visits_count}}</div>
+              <div class="yellow mt-1">{{zonestats.yellow.active_count}}</div>
+              <div class="yellow mt-1">{{zonestats.yellow.discharge_count}}</div>
+              {% comment %} {% seconds_to_hm zonstats.yellow.avg_triage_tm as greenavg_triage %} {% endcomment %}
+              <div class="yellow mt-1">{{greenavg_triage}}</div>
+              {% comment %} {% seconds_to_hm zonstats.yellow.avg_zone_tm as greenavg_zone %} {% endcomment %}
+              <div class="yellow mt-1 ">{{greenavg_visit}}</div>
+              {% comment %} {% seconds_to_hm zonstats.yellow.avg_visit_tm as greenavg_visit %} {% endcomment %}
+              <div class="yellow mt-1 ">{{greenavg_visit}}</div>
+            </div>
+            <div class="Zone1">
+              <div class="red mt-1 text-center" id="red1">Red Zone</div>
+              <div class="red mt-1">{{zonestats.red.total_visits_count}}</div>
+              <div class="red mt-1">{{zonestats.red.active_count}}</div>
+              <div class="red mt-1">{{zonestats.red.discharge_count}}</div>
+              {% comment %} {% seconds_to_hm zonstats.red.avg_triage_tm as greenavg_triage %} {% endcomment %}
+              <div class="red mt-1 ">{{greenavg_triage}}</div>
+              {% comment %} {% seconds_to_hm zonstats.red.avg_zone_tm as greenavg_zone %} {% endcomment %}
+              <div class="red mt-1 ">{{greenavg_zone}}</div>
+              {% comment %} {% seconds_to_hm zonstats.red.avg_visit_tm as greenavg_visit %} {% endcomment %}
+              <div class="red mt-1 ">{{greenavg_visit}}</div>
+            </div>
+          </div>
+
+          <div id="mchart">
+            <div class="mchart1">
+            
+            </div>
+            <div class="mchart1">
+
+            </div>
+          </div>
+
+
+        </div>
+        <div id="Traige_Interval">
+          <div class="Traige">
+
+          </div>
+
+          <div class="Traige">
+
+          </div>
+
+        </div>
+        <div>
+        </div>
+      </div>
+      <div id="main-2" class="mt-1">
+        <div>
+          <div class="visit">
+            <div class="visit1 text-center text-white">Total Visits <div class="vtotal">{{key_metrics.total.count}}
+            </div>
+            </div>
+            <div class="visit1 text-center text-white">Visit Time <div id="Rdis">Registration to discharge</div>
+            {% comment %} {% seconds_to_hm completed.avg_act_tm as avg_visit tm %} {% endcomment %}
+            <div id="vtime">{{avg_visittm}}</div>
+            </div>
+          </div>
+          <div class="visit">
+            <div class="iisl"><i class="fa-solid fa-umbrella"></i> Insurance <div class="selfpay">{{completed.Payor.Insurance.count}} <span class=" pull-right"><i
+                    class="fa-regular fa-clock"></i> 
+                    {% comment %} {% seconds_to_hm completed.Payor.Insurance.time as Insurancetime %} {% endcomment %}
+                    <span> {{Insurancetime}}</span></span> </div>
+            </div>
+            <div class="iisl"><i class="fa-solid fa-wallet"></i> Self Pay <div class="selfpay">{{completed.Payor.Self_Pay.count}} <span class=" pull-right"><i
+                    class="fa-regular fa-clock"></i> 
+                    {% comment %} {% seconds_to_hm completed.Payor.Self_Pay.time as Self_Pay_time%} {% endcomment %}
+                    <span> {{Self_Pay_time}}</span></span></div>
+            </div>
+          </div>
+          <div class="visit">
+            <div class="iisl"><i class="fa-solid fa-plane-departure"></i> International <div class="selfpay">{{completed.Residency.International.count}} <span
+                  class=" pull-right"><i class="fa-regular fa-clock"></i> 
+                  {% comment %} {% seconds_to_hm completed.Residency.International.time as Internationaltime %} {% endcomment %}
+                  <sapn>{{Internationaltime}}</span></span></div>
+            </div>
+            <div class="iisl"><i class="fa-solid fa-location-dot"></i> Local  <div class="selfpay">{{completed.Local.International.count}}<span class=" pull-right"><i
+                    class="fa-regular fa-clock"></i> 
+                    {% comment %} {% seconds_to_hm completed.Local.International.time as Localtime%} {% endcomment %}
+                  <sapn>{{Internationaltime}}</span> 
+                  </span> </div>
+            </div>
+          </div>
+        </div>
+        <div id="waiting" class="shadow">
+          <div id="current">
+            Current
+          </div>
+          <div id="waitingstatus">
+             waiting status
+          </div>
+          <div id="wait-icon">
+            <i class="fa-solid fa-hourglass-start fa-2xl"></i>
+          </div>
+        </div>
+
+        <div id="tricon">
+          <div id="For-Triage" class="text-white">
+            <i class="fa fa-medkit" aria-hidden="true"></i> for <span>Triage</span>
+          </div>
+          <div class="tri"> <div class="tricon1"> <i class="fa-solid fa-user-injured"></i>  <span class="tricondata">{{inprogress.pdTriage.count}}</span></div>
+           <div class="tricon1"> 
+            <i class="fa-regular fa-clock"></i>   
+            {% comment %} {% seconds_to_hm inprogress.pdTriage.time as avg_elapsed_triage %} {% endcomment %}
+            <span>{{ avg_elapsed_triage}}</span></div>
+          </div>
+          <div id="For-Consultation" class="text-white">
+            <i class="fa-solid fa-user-doctor"></i> for <span>Consultation</span>
+          </div>
+          <div class="tri"> <div class="tricon1"> <i class="fa-solid fa-user-injured"></i>  <span class="tricondata">{{inprogress.pdConsultation.count}}</span></div>
+           <div class="tricon1"> 
+            <i class="fa-regular fa-clock"></i>   
+            {% comment %} {% seconds_to_hm inprogress.pdConsultation.time as avg_elapsed_cons %} {% endcomment %}
+            <span>{{avg_elapsed_cons}}</span></div>
+          </div>
+        </div>
+        <div>
+          <div id="table" >
+            <i class="fa-solid fa-user-injured"></i> Doctor Statistics 
+          </div>
+          <div  id="tablecont" class="table-responsive">
+            <table class="table table-primary">
+              <thead>
+                <tr>
+                   <th scope="col">Doctor </th>
+                   <th scope="col">Patients</th>
+                   <th scope="col">Time</th>
+                
+                </tr>
+               </thead>
+               <tbody> 
+                 <tr class="">
+                   <td scope="row">Dr.Alkmal El Swami</td>
+                   <td>data</td>
+                   <td>data</td>
+                   
+                 </tr>
+                 <tr class="">
+                   <td scope="row">Dr.Ehab Adeb</td>
+                   <td>data</td>
+                   <td>data</td>
+                 </tr>
+                 <tr class="">
+                  <td scope="row">Dr.Ehab Adeb</td>
+                  <td>data</td>
+                  <td>data</td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+      <!-- Bootstrap JavaScript Libraries -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

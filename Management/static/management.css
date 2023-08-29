@@ -1,0 +1,224 @@
+#main,#mchart{
+    display: flex;
+    /* border: 1px solid; */
+}
+#sun-main{
+    display: flex;
+    /* border: 1px solid; */
+    position: relative;
+    bottom: 700px;
+}
+#main-2{display: flex;
+    /* border: 1px solid; */
+    position: relative;
+    left: 50px;
+    bottom: 700px;
+    width: 90%;
+}
+.t-red{
+    color: red;
+}
+.t-green{
+    color: green;
+}
+
+*{
+    font-family: Roboto;
+}
+.nav1{
+    background-image: linear-gradient(to right, #FFE0E0 , #FF6464);
+}
+#name{
+    height: 40px;
+    width: 40px;
+    margin-right: 17px;
+    border-radius: 50%;
+    background-color: #FDF4DC;
+}
+.AB{
+    color: #F29D41;
+    position: relative;
+    top: 6px;
+    left: 10px;
+}
+#Admissions,#home,#bar{
+    margin-right: 7px;
+}
+.sidebar {
+    height: 700px;
+    width: 50px;
+    /* position: fixed; */
+    background-image: linear-gradient( #8B4367 , #343571);overflow-x: hidden;
+    
+  }
+
+#sidebar1{
+    margin-left: 15px;
+    
+}
+.icons{
+    padding-top: 15px;
+}
+.aicon{
+    color: whitesmoke;
+}
+#keymatrics-main{
+    /* height: 540px; */
+    width: 330px;
+    /* border: 1px solid; */
+    margin-left: 52px;
+}
+.subkey{
+    height: 45px;
+    width: 320px;
+    border: 1px solid;
+    margin-left: 5px;
+    margin-top: 5px; 
+    border-radius: 7px;   
+}
+#keymatric{
+    color: #FFFFFF;
+    background: linear-gradient(100.36deg, rgba(255, 162, 162, 0.5) 1.92%, rgba(255, 184, 223, 0.5) 100.29%);
+
+}
+#Rtime{
+    background-color: #CCCCDC59;
+}
+.t1{
+    font-size: small;
+    margin-left: 1px;
+}
+.tc1{
+    color: #999999;
+    margin-left: 5px;
+}
+#icon1{position: relative; margin-left: 120px;}
+#icon2{position: relative; margin-left: 143px;}
+#icon3{position: relative; margin-left: 127px;}
+#icon4{position: relative; margin-left: 145px;}
+#icon5{position: relative; margin-left: 127px;}
+#icon6{position: relative; margin-left: 93px;}
+#icon7{position: relative; margin-left: 50px ;}
+#icon8{position: relative; margin-left: 150px;}
+
+#Zone-Statistics{
+    /* border: 1px solid; */
+    display: flex;
+    margin-left: 5px;  
+}
+.zone{
+    height: 25px;
+    width: 250px;
+    /* border: 1px solid; */
+    background-color: 
+    #EBEBFF;
+}
+.green,.yellow,.red{
+    height: 25px;
+    width: 100px;
+    /* border: 1px solid; */
+}
+#Zone-s1{background-color: #676795; border-radius: 5px;}
+#green1{background-color: #72C090;}
+#yellow1{background: #F29D41;}
+#red1{background: #FF6464;}
+.green{background-color: #C6F0C280; border-radius: 10px;margin-left: 5px;}
+.yellow{background: #F5BE6780;border-radius: 10px;margin-left: 5px;}
+.red{background: #FFE0E099;border-radius: 10px; margin-left: 5px;}
+
+#Traige_Interval{
+ height: 450px;
+ width: 385px;
+ /* border: 1px solid; */
+ margin-left: 5px;  
+}
+.mchart1{
+    width: 280px;
+    height: 235px;
+    border: 1px solid;
+   margin: 5px;    
+}
+.Traige{
+    width: 375px;
+    height: 215px;
+    border: 1px solid;
+   margin: 5px;  
+}
+.visit{
+    height: 77px;
+    /* border: 1px solid; */
+    width:330px;
+    display: flex;
+}
+.visit1{
+    background-color: #676795;
+    width: 160px;
+    height: 70px;
+    border-radius: 5px;
+    /* border: 1px solid; */
+    margin:2px;
+}
+.vtotal{ background:
+     #FFFFFF4D;
+    margin: 0 auto;
+    height: 20px;
+    width: 50px;
+    background-color: #DDDDDD;
+}
+#Rdis{
+    font-size: xx-small;
+}
+#vtime{
+    background-color: #FFF9F9;
+    margin: 0 auto;
+    height: 20px;
+    width: 50px;
+    color: black;
+}
+.iisl{
+    background: #F8F8FF80;
+    width: 158px;
+    border: 1px solid;
+    margin: 3px;
+}
+.selfpay{
+    position: relative;
+    top: 10px;
+}
+#waiting{
+    background: linear-gradient(0deg, #FFF9F9, #FFF9F9),
+    linear-gradient(0deg, #DDDDDD, #DDDDDD);
+    width: 180px;
+    margin: 5px;
+    /* border: 1px solid; */
+}
+#waitingstatus{color: #FF6464;margin: 5px;}
+#current{color: #CCCCCC;margin: 5px;}
+#wait-icon{position: relative;left: 30px;top: 50px; font-size: 50px;}
+#tricon{width: 280px;border: 1px solid;margin: 5px;}
+#For-Triage{
+    height: 40px;
+    border: 1px solid;
+    background: linear-gradient(180deg, rgba(84, 56, 100, 0.9) 0%, rgba(118, 96, 131, 0.9) 100%);
+    padding: 10px;
+}
+.tricondata{font-size: xx-large;}
+.tri{display: flex;}
+.tricon1{
+    margin: 5px;
+    width: 120px;
+    height: 60px;
+    /* border: 1px solid; */
+}
+#For-Consultation{
+    height: 40px;
+    border: 1px solid;
+    background: linear-gradient(180deg, rgba(139, 67, 103, 0.8) 0%, rgba(139, 67, 103, 0.8) 100%);
+    padding: 10px;
+}
+#table{
+    height: 80px;
+    background: linear-gradient(100.36deg, rgba(103, 103, 149, 0.56) 1.92%, rgba(103, 103, 149, 0.56) 1.93%, rgba(235, 235, 255, 0.7) 100.29%);
+    margin-left: 10px;  
+}
+#tablecont{margin-left: 10px;}
